@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- 4.2.1
+sudo: false
+install:
+- chmod 755 ./deploy.sh
+- chmod 755 ./copy-files.sh
+script: ./copy-files.sh
+deploy:
+  provider: script
+  script: ./deploy.sh
+  skip_cleanup: true
