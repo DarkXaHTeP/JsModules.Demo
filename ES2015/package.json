@@ -1,0 +1,16 @@
+{
+  "name": "commonjs",
+  "version": "0.0.1",
+  "description": "CommonJS implementation of the modules",
+  "main": "main.js",
+  "scripts": {
+    "build": "browserify scripts/main.js -t babelify -o bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "babelify": "^6.1.3",
+    "browserify": "^11.0.1"
+  },
+  "author": "Volodymyr Osmak",
+  "license": "MIT"
+}
