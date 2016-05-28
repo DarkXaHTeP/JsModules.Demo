@@ -3,7 +3,7 @@
 
 It is built and deployed to GitHub Pages with the help of Travis CI.
 You can find live version of the demo [here](https://darkxahtep.github.io/JsModules.Demo).
-The presentation is [here](https://darkxahtep.github.io/JsModules.Presentation).
+The presentation is [here](https://github.com/DarkXaHTeP/JsModules.Presentation).
 
 
 #### License: [MIT](LICENSE)
