@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES2015 Modules</title>
+    <link href="styles/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        #overlay {
+            background: rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+<div class="hide" id="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-4">
+            <form class="form-signin">
+                <h2>Please sign in</h2>
+                <input type="email" id="input-email" class="form-control" placeholder="Email address" autofocus="">
+                <input type="password" id="input-password" class="form-control" placeholder="Password">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="input-remember" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="bundle.js"></script>
+</body>
+</html>
