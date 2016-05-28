@@ -4,22 +4,115 @@
     <meta charset="UTF-8">
     <title>JsModules.Demo</title>
     <style>
-        a {
+        body {
             font-size: 16px;
             font-family: Arial;
             color: #000;
+        }
+
+        .panel {
+            border: 1px solid #333;
+            border-radius: 10px;
+            margin: 10px 0;
+            padding: 10px 20px;
+        }
+
+        .header {
+            border: none;
+        }
+
+        .panel p {
+
+        }
+
+        h1 {
+            display: block;
+            text-align: center;
+        }
+
+        h2 {
+            display: block;
+            text-align: center;
+        }
+
+        h2 > a {
+            color: #00F;
             display: block;
             padding: 10px;
+            text-decoration: none;
         }
-        a:hover {
-            color: #3c763d;
+
+        h2 > a:hover {
+            color: #00F;
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <a href="NoModules">Implementation without any modules framework</a>
-    <a href="AMD">Implementation with AMD and RequireJS</a>
-    <a href="CommonJS">Implementation with CommonJS (Browserify)</a>
-    <a href="ES2015">Implementation with ES2015 modules</a>
+<div class="header panel">
+    <h1>Simple Login Form (<a href="https://github.com/DarkXaHTeP/JsModules.Demo">open on GitHub</a>)</h1>
+
+    <p>The project is a simple implementation of the login form for the <a
+            href="https://github.com/DarkXaHTeP/JsModules.Presentation">presentation about JS Modules</a>. It contains
+        three fields: email, password and checkbox
+        to remember the user.
+        <br/>
+        Application consists of the next parts:
+    <ul>
+        <li><strong>UserModel</strong> - model of the user with readonly fields</li>
+        <li><strong>LoginForm</strong> - detects form submit and constructs user model from form inputs values</li>
+        <li><strong>formHandler</strong> - emulates sending of the data to the server</li>
+        <li><strong>loadingSpinner</strong> - a thin wrapper over the third-party library spin.js</li>
+        <li><strong>main</strong> - initializes controls and wraps modules together</li>
+    </ul>
+    And uses next patterns:
+    <ul>
+        <li><strong>Publisher-Subscriber</strong> for notifying about form submit</li>
+        <li><strong>Promise</strong> for processing of the server response</li>
+    </ul>
+    </p>
+</div>
+<div class="panel">
+    <h2><a href="NoModules">Implementation without any modules framework</a></h2>
+
+    <p>This implementation relies on module and revealing module patterns. All modules are included into html page in
+        order.
+        <br/>
+        Also it uses third-party next libraries:
+    <ul>
+        <li><strong>EventEmitter</strong> from one of the github repos for pub-sub</li>
+        <li><strong>Bluebird</strong> as a Promise implementation</li>
+    </ul>
+    </p>
+</div>
+<div class="panel">
+    <h2><a href="AMD">Implementation with AMD and RequireJS</a></h2>
+
+    <p>Is written using Asynchronous Module Definition as the module standard. Only main module is included into hmtl
+        markup and all other are loaded when required.
+        <br/>
+        In addition to libs listed in implementation without modules we need to imclude <strong>RequireJS</strong> -
+        loader for AMD modules.
+    </p>
+</div>
+<div class="panel">
+    <h2><a href="CommonJS">Implementation with CommonJS (Browserify)</a></h2>
+
+    <p>Uses CommonJS module syntax. All code is bundled into single file after the build step.
+        <br/>
+        We were able to not use <strong>EventEmitter</strong> since it is provided by Browserify and Node.JS
+        environment, but still need <strong>Bluebird</strong> for promises.</p>
+</div>
+<div class="panel">
+    <h2><a href="ES2015">Implementation with ES2015 modules</a></h2>
+
+    <p>Current implementation uses ES2015 modules as well as a lot of other new ES2015 features, such as let, arrow
+        functions and classes. All code is transpiled using Babelify transform into valied ES5 and CommonJS module
+        syntax and bundled into single file with Browserify.
+        <br/>
+        We don't need <strong>Bluebird</strong> anymore because Promise is a part of ES2015 language standard as well as
+        <strong>EventEmitter</strong> because we use Browserify for compilation.
+    </p>
+</div>
 </body>
 </html>
